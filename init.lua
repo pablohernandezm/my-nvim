@@ -41,10 +41,15 @@ vim.o.spelllang = "en,es"
 -- plugins installation
 vim.pack.add({
   { src = "https://github.com/folke/lazydev.nvim" },
-  { src = "https://github.com/Saghen/blink.cmp",     version = vim.version.range('*') },
+  { src = "https://github.com/Saghen/blink.cmp",        version = vim.version.range('*') },
   { src = "https://github.com/stevearc/conform.nvim" },
-  { src = "https://github.com/neovim/nvim-lspconfig" }
+  { src = "https://github.com/neovim/nvim-lspconfig" },
+  { src = "https://github.com/ramojus/mellifluous.nvim" },
 })
+
+-- color scheme
+vim.o.termguicolors = true
+vim.cmd("colorscheme mellifluous")
 
 -- LSP
 vim.lsp.enable("lua_ls")
