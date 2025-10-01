@@ -1,0 +1,75 @@
+-- TYPST WATCH --
+local job_id = nil
+
+-- start command
+vim.keymap.set("n", "<localleader>w", function()
+  if job_id ~= nil then
+    vim.notify("typst watch already running", vim.log.levels.WARN)
+    return
+  end
+  job_id = vim.fn.jobstart({ "typst", "watch", vim.fn.expand("%") }, {
+    stdout_buffered = true,
+    on_stdout = function(_, data, _)
+      if data then
+        vim.notify(table.concat(data, "\n"))
+      end
+    end,
+    on_exit = function()
+      vim.notify("typst watch stopped")
+      job_id = nil
+    end,
+  })
+  vim.notify("Started typst watch")
+end, { buffer = true, desc = "Start typst watch" })
+
+-- stop command
+vim.keymap.set("n", "<localleader>W", function()
+  if job_id == nil then
+    vim.notify("no typst watch running", vim.log.levels.WARN)
+    return
+  end
+  vim.fn.jobstop(job_id)
+  job_id = nil
+  vim.notify("Stopped typst watch")
+end, { buffer = true, desc = "Stop typst watch" })
+
+
+-- TYPST PIN/UNPIN MAIN CLASS --
+-- execution helper
+local function exec_command(params)
+  local clients = vim.lsp.get_clients({ name = "tinymist", bufnr = 0 })
+
+  if #clients == 0 then
+    vim.notify("tinymist client not attached.", vim.log.levels.WARN)
+    return
+  end
+
+  return clients[1]:exec_cmd(params, { bufnr = 0 })
+end
+
+-- pin main class
+vim.keymap.set("n", "<localleader>p", function()
+  exec_command({
+    title = "Pin main file",
+    command = "tinymist.pinMain",
+    arguments = { vim.api.nvim_buf_get_name(0) },
+  })
+  vim.notify("Main file pinned to current buffer.", vim.log.levels.INFO)
+end, {
+  desc = "Tinymist Pin Main File",
+  buffer = true,
+  silent = true,
+})
+
+vim.keymap.set("n", "<localleader>P", function()
+  exec_command({
+    title = "Unpin main file",
+    command = "tinymist.pinMain",
+    arguments = { vim.v.null },
+  })
+  vim.notify("Main file unpinned.", vim.log.levels.INFO)
+end, {
+  desc = "Tinymist Unpin Main File",
+  buffer = true,
+  silent = true,
+})

@@ -1,6 +1,6 @@
 -- leaders
 vim.g.mapleader = " "
-vim.g.localleader = ";"
+vim.g.maplocalleader = ";"
 
 -- keymaps
 vim.keymap.set("n", "<leader>e", ":Ex<CR>", { desc = "Open explorer" })
@@ -54,6 +54,7 @@ vim.cmd("colorscheme mellifluous")
 
 -- LSP
 vim.lsp.enable("lua_ls")
+vim.lsp.enable('tinymist')
 
 -- plugins setup
 require("conform").setup({
