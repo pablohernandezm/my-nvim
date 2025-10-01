@@ -65,9 +65,9 @@ require("conform").setup({
     nix = { "alejandra" },
   },
   format_on_save = {
-    lsp_fallback = true,
-    async = false,
-    timeout_ms = 500
+    lsp_format = "fallback",
+    stop_after_first = true,
+    timeout_ms = 500,
   },
 })
 
