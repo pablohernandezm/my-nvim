@@ -10,6 +10,7 @@ vim.keymap.set("n", "<leader>x", ":bd<CR>", { desc = "Close buffer" })
 vim.keymap.set("n", "L", ":bn<CR>", { desc = "Next buffer" })
 vim.keymap.set("n", "H", ":bp<CR>", { desc = "Previous buffer" })
 vim.keymap.set("n", "<leader>q", "<C-w>q", { desc = "Close window" })
+vim.keymap.set("n", "ff", ":FzfLua files<CR>", { desc = "Close window" })
 
 -- netrw
 vim.g.netrw_keepdir = 0                                      -- Keep the current directory and the browsing directory synced
@@ -44,6 +45,7 @@ vim.pack.add({
   { src = "https://github.com/stevearc/conform.nvim" },
   { src = "https://github.com/neovim/nvim-lspconfig" },
   { src = "https://github.com/ramojus/mellifluous.nvim" },
+  { src = "https://github.com/ibhagwan/fzf-lua" },
 })
 
 -- color scheme
@@ -81,4 +83,13 @@ require("blink.cmp").setup({
       },
     },
   },
+})
+
+require("fzf-lua").setup({
+  files = { -- Ignore .git and .jj folders
+    find_opts = [[-type f \! -path '*/.git/*' \! -path '*/.jj/*']],
+    rg_opts   = [[--color=never --hidden --files -g "!.git" -g "!.jj"]],
+    fd_opts   = [[--color=never --hidden --type f --type l --exclude .git --exclude .jj"]],
+    dir_opts  = [[/s/b/a:-d -g "!.git" -g "!.jj"]],
+  }
 })
