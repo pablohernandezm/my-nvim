@@ -10,7 +10,8 @@ vim.keymap.set("n", "<leader>x", ":bd<CR>", { desc = "Close buffer" })
 vim.keymap.set("n", "L", ":bn<CR>", { desc = "Next buffer" })
 vim.keymap.set("n", "H", ":bp<CR>", { desc = "Previous buffer" })
 vim.keymap.set("n", "<leader>q", "<C-w>q", { desc = "Close window" })
-vim.keymap.set("n", "ff", ":FzfLua files<CR>", { desc = "Close window" })
+vim.keymap.set("n", "ff", ":FzfLua files<CR>", { desc = "Find files" })
+vim.keymap.set("n", "fs", ":FzfLua builtin<CR>", { desc = "Find menu" })
 
 -- netrw
 vim.g.netrw_keepdir = 0                                      -- Keep the current directory and the browsing directory synced
@@ -92,5 +93,11 @@ require("fzf-lua").setup({
     rg_opts   = [[--color=never --hidden --files -g "!.git" -g "!.jj"]],
     fd_opts   = [[--color=never --hidden --type f --type l --exclude .git --exclude .jj"]],
     dir_opts  = [[/s/b/a:-d -g "!.git" -g "!.jj"]],
+  },
+  winopts = {
+    width = 0.60,
+    preview = {
+      hidden = true,
+    }
   }
 })
