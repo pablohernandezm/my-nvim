@@ -56,11 +56,13 @@ vim.cmd("colorscheme mellifluous")
 -- LSP
 vim.lsp.enable("lua_ls")
 vim.lsp.enable('tinymist')
+vim.lsp.enable('nil_ls')
 
 -- plugins setup
 require("conform").setup({
   formatter_by_ft = {
-    lua = { "stylua" }
+    lua = { "stylua" },
+    nix = { "alejandra" },
   },
   format_on_save = {
     lsp_fallback = true,
