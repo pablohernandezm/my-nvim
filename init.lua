@@ -39,6 +39,9 @@ vim.o.clipboard = "unnamedplus"
 vim.o.spell = true
 vim.o.spelllang = "en,es"
 
+-- statusline
+vim.o.statusline = "%y%m%r%w %f %=%l,%c %{toupper(mode())} "
+
 -- plugin installation
 vim.pack.add({
   { src = "https://github.com/folke/lazydev.nvim" },
