@@ -52,7 +52,6 @@ vim.pack.add({
   { src = "https://github.com/rebelot/kanagawa.nvim" }
 })
 
-
 -- color scheme
 vim.o.termguicolors = true
 
@@ -87,8 +86,6 @@ require("conform").setup({
     timeout_ms = 500,
   },
 })
-
-require("lazydev").setup()
 
 require("blink.cmp").setup({
   sources = {
