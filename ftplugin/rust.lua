@@ -1,5 +1,3 @@
-vim.lsp.enable("rust_analyzer")
-
 local bufnr = vim.api.nvim_get_current_buf()
 
 -- Code actions
