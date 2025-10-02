@@ -45,16 +45,30 @@ vim.o.statusline = "%y%m%r%w %f %=%l,%c %{toupper(mode())} "
 -- plugin installation
 vim.pack.add({
   { src = "https://github.com/folke/lazydev.nvim" },
-  { src = "https://github.com/Saghen/blink.cmp",        version = vim.version.range('*') },
+  { src = "https://github.com/Saghen/blink.cmp",     version = vim.version.range('*') },
   { src = "https://github.com/stevearc/conform.nvim" },
   { src = "https://github.com/neovim/nvim-lspconfig" },
-  { src = "https://github.com/ramojus/mellifluous.nvim" },
   { src = "https://github.com/ibhagwan/fzf-lua" },
+  { src = "https://github.com/rebelot/kanagawa.nvim" }
 })
+
 
 -- color scheme
 vim.o.termguicolors = true
-vim.cmd("colorscheme mellifluous")
+
+require("kanagawa").setup({
+  theme = "kanagawa-dragon",
+  undercurl = true,
+  overrides = function(colors)
+    return {
+      SpellBad = {
+        sp = colors.palette.katanaGray
+      }
+    }
+  end,
+})
+
+vim.cmd("colorscheme kanagawa-dragon")
 
 -- LSP
 vim.lsp.enable("lua_ls")
