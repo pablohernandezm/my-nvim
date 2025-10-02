@@ -51,6 +51,8 @@ vim.pack.add({
   { src = "https://github.com/ibhagwan/fzf-lua" },
   { src = "https://github.com/rebelot/kanagawa.nvim" },
   { src = "https://github.com/mrcjkb/rustaceanvim" },
+  { src = "https://github.com/mfussenegger/nvim-dap" },
+  { src = "https://github.com/igorlfs/nvim-dap-view" },
 })
 
 -- color scheme
@@ -116,3 +118,5 @@ require("fzf-lua").setup({
     }
   }
 })
+
+require("debug-config")

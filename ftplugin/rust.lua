@@ -120,3 +120,7 @@ vim.keymap.set(
   end,
   { desc = "Jump to parent module" }
 )
+
+-- Debugging replacements
+vim.keymap.set("n", "<leader>dx", function() vim.cmd.RustLsp('debug') end, { desc = "Run debug" })
+vim.keymap.set("n", "<leader>dX", function() vim.cmd.RustLsp('debuggables') end, { desc = "List debuggables" })
