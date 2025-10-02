@@ -1,3 +1,29 @@
+-- LSP
+vim.lsp.config('tinymist', {
+  settings = {
+    formatterMode = "typstyle",
+    exportPdf = "onType",
+    semanticTokens = "disable"
+  }
+})
+
+vim.lsp.enable('tinymist')
+
+-- Open Pdf
+vim.keymap.set("n", "<localleader>x", function()
+  local filepath = vim.api.nvim_buf_get_name(0)
+  local pdf_path = filepath:gsub("%.typ$", ".pdf")
+
+  local sysname = vim.loop.os_uname().sysname
+  local opener = "xdg-open" -- default for Linux
+
+  if sysname:match("Windows") then
+    opener = "start"
+  end
+
+  vim.system({ opener, pdf_path })
+end, { desc = "Open pdf" })
+
 -- TYPST WATCH --
 local job_id = nil
 

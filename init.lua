@@ -69,9 +69,7 @@ require("kanagawa").setup({
 
 vim.cmd("colorscheme kanagawa-dragon")
 
--- LSP
-vim.lsp.enable("lua_ls")
-vim.lsp.enable('tinymist')
+-- LSP (more in ./ftplugin/<filetype>.lua)
 vim.lsp.enable('nil_ls')
 
 -- plugins setup
