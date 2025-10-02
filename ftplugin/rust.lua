@@ -74,7 +74,7 @@ vim.keymap.set(
 -- Current diagnostic
 vim.keymap.set(
   "n",
-  "<localleader>d",
+  "<C-w>d",
   function()
     vim.cmd.RustLsp({ "renderDiagnostic", "current" })
   end,
@@ -84,7 +84,7 @@ vim.keymap.set(
 -- Related diagnostic
 vim.keymap.set(
   "n",
-  "<localleader>D",
+  "<C-w>D",
   function()
     vim.cmd.RustLsp('relatedDiagnostics')
   end,
