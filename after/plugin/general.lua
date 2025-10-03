@@ -78,3 +78,11 @@ vim.api.nvim_create_autocmd("PackChanged", {
     vim.cmd("TSUpdate")
   end,
 })
+
+require("nvim-treesitter.configs").setup({
+  auto_install = true,
+  highlight = { enable = true, },
+})
+
+vim.o.foldmethod = "expr"
+vim.o.foldexpr   = "nvim_treesitter#foldexpr()"
