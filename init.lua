@@ -59,3 +59,4 @@ vim.pack.add({
 
 -- LSP (more in ./ftplugin/<filetype>.lua)
 vim.lsp.enable('nil_ls')
+vim.lsp.enable('docker_language_server')
