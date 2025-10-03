@@ -1,8 +1,8 @@
--- leaders
+-- Leaders
 vim.g.mapleader = " "
 vim.g.maplocalleader = ";"
 
--- keymaps
+-- Global keymaps
 vim.keymap.set("n", "<leader>e", ":Ex<CR>", { desc = "Open explorer" })
 vim.keymap.set("n", "<leader>E", ":Ex %:p:h<CR>", { desc = "Open explorer (current directory)" })
 vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "Write" })
@@ -10,39 +10,37 @@ vim.keymap.set("n", "<leader>x", ":bd<CR>", { desc = "Close buffer" })
 vim.keymap.set("n", "L", ":bn<CR>", { desc = "Next buffer" })
 vim.keymap.set("n", "H", ":bp<CR>", { desc = "Previous buffer" })
 vim.keymap.set("n", "<leader>q", "<C-w>q", { desc = "Close window" })
-vim.keymap.set("n", "ff", ":FzfLua files<CR>", { desc = "Find files" })
-vim.keymap.set("n", "fs", ":FzfLua builtin<CR>", { desc = "Find menu" })
 
--- netrw
+-- Netrw
 vim.g.netrw_keepdir = 0                                      -- Keep the current directory and the browsing directory synced
 vim.g.netrw_liststyle = 3                                    -- Tree style
 vim.g.netrw_banner = 0                                       -- Hide banner
 vim.api.nvim_set_hl(0, "netrwMarkFile", { link = "Search" }) -- Highlight marks as search results
 
--- tab behavior
+-- Tab behavior
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
 vim.o.softtabstop = 2
 vim.o.expandtab = true
 
--- line numbers
+-- Line numbers
 vim.o.number = true
 vim.o.relativenumber = true
 
--- persist undo
+-- Persist undo
 vim.opt.undofile = true
 
--- always use system clipboard
+-- Always use system clipboard
 vim.o.clipboard = "unnamedplus"
 
--- spell options
+-- Spell options
 vim.o.spell = true
 vim.o.spelllang = "en,es"
 
--- statusline
+-- Statusline
 vim.o.statusline = "%y%m%r%w %f %=%l,%c %{toupper(mode())} "
 
--- plugin installation
+-- Plugins
 vim.pack.add({
   { src = "https://github.com/folke/lazydev.nvim" },
   { src = "https://github.com/Saghen/blink.cmp",       version = vim.version.range('*') },
@@ -56,71 +54,5 @@ vim.pack.add({
   { src = "https://github.com/nvim-mini/mini.surround" },
 })
 
--- color scheme
-vim.o.termguicolors = true
-
-require("kanagawa").setup({
-  theme = "kanagawa-dragon",
-  undercurl = true,
-  overrides = function(colors)
-    return {
-      SpellBad = {
-        sp = colors.palette.katanaGray
-      }
-    }
-  end,
-})
-
-vim.cmd("colorscheme kanagawa-dragon")
-
 -- LSP (more in ./ftplugin/<filetype>.lua)
 vim.lsp.enable('nil_ls')
-
--- plugins setup
-require("conform").setup({
-  formatter_by_ft = {
-    lua = { "stylua" },
-    nix = { "alejandra" },
-  },
-  format_on_save = {
-    lsp_format = "fallback",
-    stop_after_first = true,
-    timeout_ms = 500,
-  },
-})
-
-require("blink.cmp").setup({
-  sources = {
-    default = { "lazydev", "lsp", "path", "snippets", "buffer" },
-    per_filetype = {
-      lua = { inherit_defaults = true, "lazydev" },
-    },
-    providers = {
-      lazydev = {
-        name = "LazyDev",
-        module = "lazydev.integrations.blink",
-        score_offset = 100,
-      },
-    },
-  },
-})
-
-require("fzf-lua").setup({
-  files = { -- Ignore .git and .jj folders
-    find_opts = [[-type f \! -path '*/.git/*' \! -path '*/.jj/*']],
-    rg_opts   = [[--color=never --hidden --files -g "!.git" -g "!.jj"]],
-    fd_opts   = [[--color=never --hidden --type f --type l --exclude .git --exclude .jj"]],
-    dir_opts  = [[/s/b/a:-d -g "!.git" -g "!.jj"]],
-  },
-  winopts = {
-    width = 0.60,
-    preview = {
-      hidden = true,
-    }
-  }
-})
-
-require('mini.surround').setup()
-
--- Modules
-require("debug-config")

@@ -14,14 +14,14 @@ require("dap-view").setup({
   },
 })
 
--- permanent keymaps
+-- Permanent keymaps
 vim.keymap.set("n", "<leader>dd", ":DapToggleBreakpoint<CR>", { desc = "Toggle debug breakpoint" })
 vim.keymap.set("n", "<leader>dx", ":DapNew<CR>", { desc = "Run debug" })
 vim.keymap.set("n", "<leader>dp", ":DapPause<CR>", { desc = "Pause debug thread" })
 vim.keymap.set("n", "<leader>dq", ":DapTerminate<CR>", { desc = "Stop debugging" })
 vim.keymap.set("n", "<leader>a", function() print("Old keymap") end, { desc = "Old keymap" })
 
--- temporal keymaps for debugging
+-- Temporal keymaps for debugging
 local debug_keys = {
   { { "n", "v" }, "<leader>a", ":DapViewWatch<CR>",    "Add expression to watchlist" },
   { "n",          "<leader>n", ":DapContinue<CR>",     "Resume debug execution" },
@@ -31,7 +31,7 @@ local debug_keys = {
   { "n",          "<Down>",    ":DapStepInto<CR>",     "Step into" },
 }
 
--- handling creation and deletion of temporal keymaps
+-- Handling creation and deletion of temporal keymaps
 local old_keys = {}
 local active_keys = {}
 
