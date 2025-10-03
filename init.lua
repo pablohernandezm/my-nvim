@@ -12,7 +12,6 @@ vim.keymap.set("n", "H", ":bp<CR>", { desc = "Previous buffer" })
 vim.keymap.set("n", "<leader>q", "<C-w>q", { desc = "Close window" })
 
 -- Netrw
-vim.g.netrw_keepdir = 0                                      -- Keep the current directory and the browsing directory synced
 vim.g.netrw_liststyle = 3                                    -- Tree style
 vim.g.netrw_banner = 0                                       -- Hide banner
 vim.api.nvim_set_hl(0, "netrwMarkFile", { link = "Search" }) -- Highlight marks as search results
