@@ -42,7 +42,7 @@ vim.o.statusline = "%y%m%r%w %f %=%l,%c %{toupper(mode())} "
 -- Plugins
 vim.pack.add({
   { src = "https://github.com/folke/lazydev.nvim" },
-  { src = "https://github.com/Saghen/blink.cmp",       version = vim.version.range('*') },
+  { src = "https://github.com/Saghen/blink.cmp",               version = vim.version.range('*') },
   { src = "https://github.com/stevearc/conform.nvim" },
   { src = "https://github.com/neovim/nvim-lspconfig" },
   { src = "https://github.com/ibhagwan/fzf-lua" },
@@ -51,6 +51,7 @@ vim.pack.add({
   { src = "https://github.com/mfussenegger/nvim-dap" },
   { src = "https://github.com/igorlfs/nvim-dap-view" },
   { src = "https://github.com/nvim-mini/mini.surround" },
+  { src = "https://github.com/nvim-treesitter/nvim-treesitter" }
 })
 
 -- LSP (more in ./ftplugin/<filetype>.lua)

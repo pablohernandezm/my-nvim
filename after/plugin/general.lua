@@ -1,3 +1,6 @@
+-- Augroups
+local plugin_cmds = vim.api.nvim_create_augroup("PluginEvents", { clear = true })
+
 -- Color scheme
 vim.o.termguicolors = true
 
@@ -66,3 +69,12 @@ vim.keymap.set("n", "fs", ":FzfLua builtin<CR>", { desc = "Find menu" })
 
 -- Utils
 require('mini.surround').setup()
+
+-- Treesitter
+vim.api.nvim_create_autocmd("PackChanged", {
+  group = plugin_cmds,
+  pattern = "nvim-treesitter",
+  callback = function()
+    vim.cmd("TSUpdate")
+  end,
+})
