@@ -84,5 +84,6 @@ require("nvim-treesitter.configs").setup({
   highlight = { enable = true, },
 })
 
+vim.o.foldlevel  = 100 -- start with a high fold level
 vim.o.foldmethod = "expr"
 vim.o.foldexpr   = "nvim_treesitter#foldexpr()"
