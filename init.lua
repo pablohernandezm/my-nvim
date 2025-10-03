@@ -45,7 +45,7 @@ vim.o.statusline = "%y%m%r%w %f %=%l,%c %{toupper(mode())} "
 -- plugin installation
 vim.pack.add({
   { src = "https://github.com/folke/lazydev.nvim" },
-  { src = "https://github.com/Saghen/blink.cmp",     version = vim.version.range('*') },
+  { src = "https://github.com/Saghen/blink.cmp",       version = vim.version.range('*') },
   { src = "https://github.com/stevearc/conform.nvim" },
   { src = "https://github.com/neovim/nvim-lspconfig" },
   { src = "https://github.com/ibhagwan/fzf-lua" },
@@ -53,6 +53,7 @@ vim.pack.add({
   { src = "https://github.com/mrcjkb/rustaceanvim" },
   { src = "https://github.com/mfussenegger/nvim-dap" },
   { src = "https://github.com/igorlfs/nvim-dap-view" },
+  { src = "https://github.com/nvim-mini/mini.surround" },
 })
 
 -- color scheme
@@ -119,4 +120,7 @@ require("fzf-lua").setup({
   }
 })
 
+require('mini.surround').setup()
+
+-- Modules
 require("debug-config")
