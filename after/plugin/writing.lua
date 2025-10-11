@@ -1,8 +1,8 @@
 -- Writer mode
-local ft_group = vim.api.nvim_create_augroup("FileTypeConfig", { clear = true })
+local writing_group = vim.api.nvim_create_augroup("FileTypeConfig", { clear = true })
 
 vim.api.nvim_create_autocmd("FileType", {
-  group = ft_group,
+  group = writing_group,
   pattern = { "typst", "markdown", "text", "gitcommit", "jjdescription" },
   callback = function()
     local opts = { buffer = true }
