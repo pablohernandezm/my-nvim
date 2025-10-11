@@ -1,5 +1,5 @@
 -- Writer mode
-local writing_group = vim.api.nvim_create_augroup("FileTypeConfig", { clear = true })
+local writing_group = vim.api.nvim_create_augroup("WritingConfig", { clear = true })
 
 vim.api.nvim_create_autocmd("FileType", {
   group = writing_group,
