@@ -49,6 +49,7 @@ vim.pack.add({
   { src = "https://github.com/stevearc/conform.nvim" },
   { src = "https://github.com/neovim/nvim-lspconfig" },
   { src = "https://github.com/ibhagwan/fzf-lua" },
+  { src = "https://github.com/nvim-tree/nvim-web-devicons" },
   { src = "https://github.com/rebelot/kanagawa.nvim" },
   { src = "https://github.com/mrcjkb/rustaceanvim" },
   { src = "https://github.com/mfussenegger/nvim-dap" },

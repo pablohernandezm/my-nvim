@@ -49,6 +49,9 @@ require("blink.cmp").setup({
   },
 })
 
+-- Icons (used by fzf-lua)
+require('nvim-web-devicons').setup()
+
 -- Fuzzy finder
 require("fzf-lua").setup({
   files = { -- Ignore .git and .jj folders
