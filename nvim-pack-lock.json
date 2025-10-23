@@ -5,6 +5,7 @@
       "src": "https://github.com/Saghen/blink.cmp",
       "version": ">=0.0.0"
     },
+    "ccc.nvim": [],
     "conform.nvim": {
       "rev": "9fd3d5e",
       "src": "https://github.com/stevearc/conform.nvim"

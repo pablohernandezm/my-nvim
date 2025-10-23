@@ -56,6 +56,7 @@ vim.pack.add({
   { src = "https://github.com/igorlfs/nvim-dap-view" },
   { src = "https://github.com/nvim-mini/mini.surround" },
   { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
+  { src = "https://github.com/uga-rosa/ccc.nvim" },
 })
 
 -- LSP (more in ./ftplugin/<filetype>.lua)

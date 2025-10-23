@@ -73,6 +73,15 @@ vim.keymap.set("n", "fs", ":FzfLua builtin<CR>", { desc = "Find menu" })
 -- Utils
 require('mini.surround').setup()
 
+require('ccc').setup({
+  highlighter = {
+    auto_enable = true,
+    lsp = true,
+  },
+})
+vim.keymap.set("n", "<leader>c", ":CccPick<CR>", { desc = "Color picker" })
+vim.keymap.set("n", "<leader>C", ":CccConvert<CR>", { desc = "Convert color" })
+
 -- Treesitter
 vim.api.nvim_create_autocmd("PackChanged", {
   group = plugin_cmds,
