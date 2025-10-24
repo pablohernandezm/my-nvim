@@ -2,7 +2,7 @@
 vim.lsp.config('tinymist', {
   settings = {
     formatterMode = "typstyle",
-    exportPdf = "onType",
+    exportPdf = "onSave",
   }
 })
 
@@ -22,42 +22,6 @@ vim.keymap.set("n", "<localleader>x", function()
 
   vim.system({ opener, pdf_path })
 end, { desc = "Open pdf" })
-
--- TYPST WATCH --
-local job_id = nil
-
--- start command
-vim.keymap.set("n", "<localleader>w", function()
-  if job_id ~= nil then
-    vim.notify("typst watch already running", vim.log.levels.WARN)
-    return
-  end
-  job_id = vim.fn.jobstart({ "typst", "watch", vim.fn.expand("%") }, {
-    stdout_buffered = true,
-    on_stdout = function(_, data, _)
-      if data then
-        vim.notify(table.concat(data, "\n"))
-      end
-    end,
-    on_exit = function()
-      vim.notify("typst watch stopped")
-      job_id = nil
-    end,
-  })
-  vim.notify("Started typst watch")
-end, { buffer = true, desc = "Start typst watch" })
-
--- stop command
-vim.keymap.set("n", "<localleader>W", function()
-  if job_id == nil then
-    vim.notify("no typst watch running", vim.log.levels.WARN)
-    return
-  end
-  vim.fn.jobstop(job_id)
-  job_id = nil
-  vim.notify("Stopped typst watch")
-end, { buffer = true, desc = "Stop typst watch" })
-
 
 -- TYPST PIN/UNPIN MAIN CLASS --
 -- execution helper
