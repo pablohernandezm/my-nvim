@@ -81,6 +81,32 @@ require('floaterm').setup({
   },
 })
 
+vim.g.rustaceanvim = {
+  server = {
+    on_attach = function(client, bufnr)
+      local has_bacon = vim.fn.executable("bacon") == 1
+
+      if has_bacon then
+        local terminals = require("floaterm.state").terminals
+        local n_terminals = terminals ~= nil and #terminals or 0
+
+        local bacon_terminal = { name = "bacon (rust)", cmd = "bacon run-long" }
+
+        if n_terminals > 0 then
+          require("floaterm.api").new_term(bacon_terminal)
+        else
+          require('floaterm').setup({
+            terminals = {
+              { name = "Project" },
+              bacon_terminal
+            },
+          })
+        end
+      end
+    end,
+  },
+}
+
 -- Utils
 require('mini.surround').setup()
 
