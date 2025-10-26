@@ -10,6 +10,10 @@
       "rev": "9fd3d5e",
       "src": "https://github.com/stevearc/conform.nvim"
     },
+    "floaterm": {
+      "rev": "34e14f0",
+      "src": "https://github.com/nvzone/floaterm"
+    },
     "fzf-lua": {
       "rev": "7839b7f",
       "src": "https://github.com/ibhagwan/fzf-lua"
@@ -49,6 +53,10 @@
     "rustaceanvim": {
       "rev": "4c5fc77",
       "src": "https://github.com/mrcjkb/rustaceanvim"
+    },
+    "volt": {
+      "rev": "620de13",
+      "src": "https://github.com/nvzone/volt"
     }
   }
 }

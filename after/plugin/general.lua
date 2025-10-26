@@ -70,6 +70,17 @@ require("fzf-lua").setup({
 vim.keymap.set("n", "ff", ":FzfLua files<CR>", { desc = "Find files" })
 vim.keymap.set("n", "fs", ":FzfLua builtin<CR>", { desc = "Find menu" })
 
+-- Floating terminal
+vim.keymap.set({ "n", "t" }, "<C-/>", function()
+  vim.cmd("FloatermToggle")
+end, { desc = "Toggle floating terminal" })
+
+require('floaterm').setup({
+  terminals = {
+    { name = "Project" },
+  },
+})
+
 -- Utils
 require('mini.surround').setup()
 
