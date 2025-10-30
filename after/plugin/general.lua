@@ -23,6 +23,12 @@ require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
 		nix = { "alejandra" },
+		sql = { "pg_format" },
+	},
+	formatters = {
+		pg_format = {
+			prepend_args = { "--no-space-function" },
+		},
 	},
 	format_on_save = {
 		lsp_format = "fallback",
