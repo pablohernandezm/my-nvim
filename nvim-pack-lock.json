@@ -61,6 +61,10 @@
     "volt": {
       "rev": "620de13",
       "src": "https://github.com/nvzone/volt"
+    },
+    "which-key.nvim": {
+      "rev": "3aab214",
+      "src": "https://github.com/folke/which-key.nvim"
     }
   }
 }
