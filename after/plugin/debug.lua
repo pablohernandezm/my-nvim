@@ -19,7 +19,6 @@ vim.keymap.set("n", "<leader>dd", ":DapToggleBreakpoint<CR>", { desc = "Toggle d
 vim.keymap.set("n", "<leader>dx", ":DapNew<CR>", { desc = "Run debug" })
 vim.keymap.set("n", "<leader>dp", ":DapPause<CR>", { desc = "Pause debug thread" })
 vim.keymap.set("n", "<leader>dq", ":DapTerminate<CR>", { desc = "Stop debugging" })
-vim.keymap.set("n", "<leader>a", function() print("Old keymap") end, { desc = "Old keymap" })
 
 -- Temporal keymaps for debugging
 local debug_keys = {
