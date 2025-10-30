@@ -4,7 +4,6 @@ vim.g.maplocalleader = ";"
 
 -- Global keymaps
 vim.keymap.set("n", "<leader>e", ":Ex<CR>", { desc = "Open explorer" })
-vim.keymap.set("n", "<leader>E", ":Ex %:p:h<CR>", { desc = "Open explorer (current directory)" })
 vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "Write" })
 vim.keymap.set("n", "<leader>x", ":bd<CR>", { desc = "Close buffer" })
 vim.keymap.set("n", "L", ":bn<CR>", { desc = "Next buffer" })
@@ -12,7 +11,7 @@ vim.keymap.set("n", "H", ":bp<CR>", { desc = "Previous buffer" })
 vim.keymap.set("n", "<leader>q", "<C-w>q", { desc = "Close window" })
 
 -- Netrw
-vim.g.netrw_liststyle = 3                                    -- Tree style
+-- vim.g.netrw_liststyle = 3                                    -- Tree style
 vim.g.netrw_banner = 0                                       -- Hide banner
 vim.api.nvim_set_hl(0, "netrwMarkFile", { link = "Search" }) -- Highlight marks as search results
 
@@ -59,6 +58,7 @@ vim.pack.add({
   { src = "https://github.com/uga-rosa/ccc.nvim" },
   { src = "https://github.com/nvzone/floaterm" },
   { src = "https://github.com/nvzone/volt" },
+  { src = "https://github.com/stevearc/oil.nvim" },
 })
 
 -- LSP (more in ./ftplugin/<filetype>.lua)

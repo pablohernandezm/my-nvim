@@ -118,6 +118,37 @@ vim.g.rustaceanvim = {
   },
 }
 
+-- Explorer
+local oil_details = false
+require("oil").setup({
+  columns = { "icon" },
+  watch_for_changes = false,
+  keymaps = {
+    ["<S-h>"] = "<CMD>Oil<CR>",
+    ["<S-l>"] = { "actions.select", mode = "n" },
+    ["gd"] = {
+      desc = "Toggle file detail view",
+      callback = function()
+        oil_details = not oil_details
+        if oil_details then
+          require("oil").set_columns({ "icon", "permissions", "size", })
+        else
+          require("oil").set_columns({ "icon" })
+        end
+      end,
+    },
+  },
+
+})
+
+vim.keymap.set('n', '<leader>e', function()
+  if vim.bo.filetype == 'oil' then
+    require("oil.actions").close.callback()
+  else
+    vim.cmd('Oil')
+  end
+end, { desc = "Toggle explorer" })
+
 -- Utils
 require('mini.surround').setup()
 
