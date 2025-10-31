@@ -7,7 +7,7 @@
     },
     "ccc.nvim": [],
     "conform.nvim": {
-      "rev": "9fd3d5e",
+      "rev": "cde4da5",
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "floaterm": {
@@ -23,23 +23,27 @@
       "src": "https://github.com/rebelot/kanagawa.nvim"
     },
     "lazydev.nvim": {
-      "rev": "c2dfe35",
+      "rev": "371cd74",
       "src": "https://github.com/folke/lazydev.nvim"
     },
     "mini.surround": {
-      "rev": "3c73e2a",
+      "rev": "88c5229",
       "src": "https://github.com/nvim-mini/mini.surround"
     },
     "nvim-dap": {
-      "rev": "6782b09",
+      "rev": "e97dc47",
       "src": "https://github.com/mfussenegger/nvim-dap"
     },
     "nvim-dap-view": {
-      "rev": "1fe98bc",
+      "rev": "b976fa2",
       "src": "https://github.com/igorlfs/nvim-dap-view"
     },
+    "nvim-jdtls": {
+      "rev": "38d265e",
+      "src": "https://codeberg.org/mfussenegger/nvim-jdtls"
+    },
     "nvim-lspconfig": {
-      "rev": "87d3018",
+      "rev": "2010fc6",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
@@ -55,7 +59,7 @@
       "src": "https://github.com/stevearc/oil.nvim"
     },
     "rustaceanvim": {
-      "rev": "be0d1d1",
+      "rev": "ae35f75",
       "src": "https://github.com/mrcjkb/rustaceanvim"
     },
     "volt": {

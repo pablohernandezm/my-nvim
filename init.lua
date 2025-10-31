@@ -60,6 +60,7 @@ vim.pack.add({
 	{ src = "https://github.com/nvzone/volt" },
 	{ src = "https://github.com/stevearc/oil.nvim" },
 	{ src = "https://github.com/folke/which-key.nvim" },
+	{ src = "https://codeberg.org/mfussenegger/nvim-jdtls" },
 })
 
 -- LSP (more in ./ftplugin/<filetype>.lua)

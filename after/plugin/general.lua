@@ -24,6 +24,7 @@ require("conform").setup({
 		lua = { "stylua" },
 		nix = { "alejandra" },
 		sql = { "pg_format" },
+		java = { "google-java-format" },
 	},
 	formatters = {
 		pg_format = {
