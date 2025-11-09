@@ -25,6 +25,8 @@ require("conform").setup({
 		nix = { "alejandra" },
 		sql = { "pg_format" },
 		java = { "google-java-format" },
+		toml = { "taplo" },
+		yaml = { "yamlfmt" },
 	},
 	formatters = {
 		pg_format = {
