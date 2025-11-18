@@ -89,43 +89,6 @@ require("floaterm").setup({
 	},
 })
 
-vim.g.rustaceanvim = {
-	server = {
-		on_attach = function(client, bufnr)
-			local has_bacon = vim.fn.executable("bacon") == 1
-			local name = "bacon (rust)"
-
-			if has_bacon then
-				local terminals = require("floaterm.state").terminals
-				local add = false
-
-				if terminals ~= nil then
-					add = true
-
-					for _, ter in ipairs(terminals) do
-						if ter.name == name then
-							add = false
-						end
-					end
-				end
-
-				local bacon_terminal = { name = name, cmd = "bacon run-long" }
-
-				if add then
-					require("floaterm.api").new_term(bacon_terminal)
-				else
-					require("floaterm").setup({
-						terminals = {
-							{ name = "Project" },
-							bacon_terminal,
-						},
-					})
-				end
-			end
-		end,
-	},
-}
-
 -- Explorer
 local oil_details = false
 require("oil").setup({
