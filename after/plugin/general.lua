@@ -131,6 +131,18 @@ require("ccc").setup({
 vim.keymap.set("n", "<leader>c", ":CccPick<CR>", { desc = "Color picker" })
 vim.keymap.set("n", "<leader>C", ":CccConvert<CR>", { desc = "Convert color" })
 
+-- Copilot
+vim.g.copilot_enabled = false -- Disabled by default
+
+vim.keymap.set("n", "<leader>G", function() -- Toggle copilot
+	vim.g.copilot_enabled = not vim.g.copilot_enabled
+	if vim.g.copilot_enabled then
+		print("Copilot enabled")
+	else
+		print("Copilot disabled")
+	end
+end, { desc = "Toggle GitHub Copilot" })
+
 -- Treesitter
 vim.api.nvim_create_autocmd("PackChanged", {
 	group = plugin_cmds,
