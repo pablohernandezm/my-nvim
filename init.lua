@@ -62,6 +62,7 @@ vim.pack.add({
 	{ src = "https://github.com/folke/which-key.nvim" },
 	{ src = "https://codeberg.org/mfussenegger/nvim-jdtls" },
 	{ src = "https://github.com/github/copilot.vim" },
+	{ src = "https://github.com/akinsho/bufferline.nvim" },
 })
 
 -- LSP (more in ./ftplugin/<filetype>.lua)

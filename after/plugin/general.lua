@@ -160,3 +160,25 @@ require("nvim-treesitter.configs").setup({
 vim.o.foldlevel = 100 -- start with a high fold level
 vim.o.foldmethod = "expr"
 vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+
+-- Bufferline
+local bufferline = require("bufferline")
+
+bufferline.setup({
+	options = {
+		diagnostics = "nvim_lsp",
+		always_show_bufferline = false,
+	},
+})
+
+vim.keymap.set("n", "L", ":BufferLineCycleNext<CR>", { desc = "Next buffer" })
+vim.keymap.set("n", "H", ":BufferLineCyclePrev<CR>", { desc = "Previous buffer" })
+vim.keymap.set("n", "<leader>bj", ":BufferLinePick<CR>", { desc = "Jump to buffer" })
+vim.keymap.set("n", "<leader>bp", ":BufferLineTogglePin<CR>", { desc = "Toggle pin buffer" })
+vim.keymap.set("n", "<leader>bl", ":BufferLineCloseRight<CR>", { desc = "Close buffers to the right" })
+vim.keymap.set("n", "<leader>bh", ":BufferLineCloseLeft<CR>", { desc = "Close buffers to the left" })
+vim.keymap.set("n", "<leader>bo", ":BufferLineCloseOthers<CR>", { desc = "Close other buffers" })
+
+require("which-key").add({
+	{ "<leader>b", group = "Buffers" },
+})
