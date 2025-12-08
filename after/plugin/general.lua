@@ -168,6 +168,7 @@ bufferline.setup({
 	options = {
 		diagnostics = "nvim_lsp",
 		always_show_bufferline = false,
+		sort_by = "insert_after_current",
 	},
 })
 
