@@ -23,7 +23,7 @@ require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
 		nix = { "alejandra" },
-		sql = { "pg_format" },
+		sql = { "sqruff" },
 		java = { "google-java-format" },
 		toml = { "taplo" },
 		yaml = { "yamlfmt" },
