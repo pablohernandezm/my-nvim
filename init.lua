@@ -69,3 +69,5 @@ vim.pack.add({
 vim.lsp.enable("nil_ls")
 vim.lsp.enable("docker_language_server")
 vim.lsp.enable("postgres_lsp")
+vim.lsp.enable("astro")
+vim.lsp.enable("marksman")
