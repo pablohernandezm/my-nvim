@@ -9,7 +9,7 @@ require("dap-view").setup({
 	windows = {
 		terminal = {
 			position = "right",
-			width = 0.45,
+			size = 0.45,
 		},
 	},
 })
