@@ -84,6 +84,7 @@ vim.keymap.set({ "n", "t" }, "<C-/>", function()
 end, { desc = "Toggle floating terminal" })
 
 require("floaterm").setup({
+	size = { h = 70, w = 80 },
 	terminals = {
 		{ name = "Project" },
 	},
